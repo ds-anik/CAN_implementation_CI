@@ -1,0 +1,39 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - master
+
+  pull_request:
+    branches: "*"
+
+jobs:
+
+  Build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2.3.4
+    
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9 
+    
+    - name: Display Python version
+      run: python -c "import sys; print(sys.version)"
+
+    - name: Install GCC
+      run: sudo apt-get install build-essential
+
+    - name: Create .c and .h files
+      working-directory: ./script
+      run: python generate.py
+        
+    - name: Build test executable
+      run: make all
+
+    - name: Run Test 
+      run: make run_test

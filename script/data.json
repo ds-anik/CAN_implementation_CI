@@ -1,0 +1,43 @@
+{
+    "defines": {
+        "states": ["OFF", "ON"],
+        "status": ["UNINITIALIZED", "OKAY", "ERROR"]
+    },
+
+    "messages": [
+        {
+            "id":"0x100",
+            "signals":[
+                {"name":"temperature",                   "type":"float",    "start":0,  "length":10, "range":[-10.0, 50.0], "comment":"the ambient temperature"},
+                {"name":"humidity",                      "type":"uint8_t",  "start":10, "length":7,  "range":[0, 100],      "comment":"the ambient humidity percentage"},
+                {"name":"dht_sensor_status",             "type":"uint8_t",  "start":17, "length":2,  "values":"status",     "comment":"the dht sensor status"},
+                {"name":"flow_rate",                     "type":"uint16_t", "start":19, "length":9,  "range":[17,500],      "comment":"the flow rate in milliliter per second"},
+                {"name":"flow_meter_sensor_status",      "type":"uint8_t",  "start":28, "length":2,  "values":"status",     "comment":"the flow meter sensor status"},
+                {"name":"light_intensity",               "type":"uint8_t",  "start":30, "length":7,  "range":[0, 100],      "comment":"the light intensity percentage"},
+                {"name":"light_intensity_sensor_status", "type":"uint8_t",  "start":37, "length":2,  "values":"status",     "comment":"the light intensity sensor status"},
+                {"name":"water_level",                   "type":"uint8_t",  "start":39, "length":7,  "range":[0, 100],      "comment":"the water level percentage"},
+                {"name":"water_level_sensor_status",     "type":"uint8_t",  "start":46, "length":2,  "values":"status",     "comment":"the water level sensor status"},
+                {"name":"soil_moisture",                 "type":"uint8_t",  "start":48, "length":7,  "range":[0, 100],      "comment":"the soil moisture percentage"},
+                {"name":"soil_moisture_sensor_status",   "type":"uint8_t",  "start":55, "length":2,  "values":"status",     "comment":"the soil moisture sensor status"}
+            ]
+        },
+        {
+            "id":"0x101",
+            "signals":[
+                {"name":"rtc_year",           "type":"uint16_t", "start":0,  "length":11, "range":[2020, 2040], "comment":"the current RTC year"},
+                {"name":"rtc_month",          "type":"uint8_t",  "start":11, "length":4,  "range":[1, 12],      "comment":"the current RTC month"},
+                {"name":"rtc_day",            "type":"uint8_t",  "start":15, "length":5,  "range":[1, 31],      "comment":"the current RTC day"},
+                {"name":"rtc_hour",           "type":"uint8_t",  "start":20, "length":5,  "range":[0, 23],      "comment":"the current RTC hour"},
+                {"name":"rtc_minute",         "type":"uint8_t",  "start":25, "length":6,  "range":[0, 59],      "comment":"the current RTC minute"},
+                {"name":"rtc_second",         "type":"uint8_t",  "start":31, "length":6,  "range":[0, 59],      "comment":"the current RTC second"},
+                {"name":"rtc_status",         "type":"uint8_t",  "start":37, "length":2,  "values":"status",    "comment":"the RTC status"},
+                {"name":"water_pump_state",   "type":"uint8_t",  "start":39, "length":1,  "values":"states",    "comment":"the water pump state"},
+                {"name":"water_pump_status",  "type":"uint8_t",  "start":40, "length":2,  "values":"status",    "comment":"the water_pump status"},
+                {"name":"water_valve_state",  "type":"uint8_t",  "start":42, "length":1,  "values":"states",    "comment":"the water valve state"},
+                {"name":"water_valve_status", "type":"uint8_t",  "start":43, "length":2,  "values":"status",    "comment":"the water_valve status"},
+                {"name":"fans_state",         "type":"uint8_t",  "start":45, "length":1,  "values":"states",    "comment":"the fan state"},
+                {"name":"fans_status",        "type":"uint8_t",  "start":46, "length":2,  "values":"status",    "comment":"the fan status"}
+            ]
+        }
+    ]
+}
