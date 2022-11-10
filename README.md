@@ -3,9 +3,6 @@
 ## YrkesAkademin Group Project - Embedded Programming Course
 
 
-
-[![Build and Test](https://github.com/jimmybjorkman/CI_assignment_2/actions/workflows/BuildAndTest.yml/badge.svg)](https://github.com/jimmybjorkman/CI_assignment_2/actions/workflows/BuildAndTest.yml)
-
 ### Assignment Description:
 
 <div align="justify">As you know, in CAN we need to pack and unpack messages by inserting multiple signals in the data field of a message and extracting the signals from it. And you also know that the data field in a CAN message is an array of max. 8 elements of type uint8_t (unsigned char). To handle packing and unpacking messages a module(buffer) including buffer.h and macos.o/linux.o/windows.o has been provided.<br> <div />
